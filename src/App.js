@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
@@ -50,24 +50,22 @@ function App() {
       <div className="inputs">
         <input type="text" placeholder="Add your note" onChange={handleChange}
           value={newNote} />
-
         <button className="add-btn" onClick={() => addNote()} >Add New Note</button>
       </div>
 
+      {notesList.length === 0 ? <h2>Enter a Note</h2> : null}
       <div className="list-container">
         {notesList.map((item, index) => {
           return <div className="note" key={index}>
             <span className="note-title">
               {item.Title}
             </span>
-            <span >
+            <span>
               {item.Remove}
             </span>
           </div>
         })}
       </div>
-
-
     </div>
   );
 }
